@@ -12,7 +12,7 @@ module Puma
         end
 
         in_background do
-          sampler.start
+          sampler.collect
         end
       end
     end
