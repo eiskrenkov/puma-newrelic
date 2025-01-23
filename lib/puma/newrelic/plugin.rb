@@ -1,9 +1,8 @@
 require_relative "sampler"
-require "puma/plugin"
 
 module Puma
   module NewRelic
-    class Plugin < Puma::Plugin
+    module Plugin
       def start(launcher)
         sampler = Puma::NewRelic::Sampler.new(launcher)
         launcher.events.register(:state) do |state|
@@ -17,7 +16,5 @@ module Puma
         end
       end
     end
-
-    Puma::Plugins.register "newrelic", Plugin
   end
 end
