@@ -9,7 +9,7 @@ You can view the information in the NewRelic insights or in NewRelic One.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'puma-newrelic'
+gem 'puma-newrelic-codeur'
 ```
 
 And then execute:
