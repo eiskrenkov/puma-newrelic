@@ -11,7 +11,7 @@ module Puma
           end
         end
 
-        in_background do
+        launcher.events.on_booted do
           sampler.collect
         end
       end
