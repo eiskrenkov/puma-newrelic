@@ -4,7 +4,6 @@ This is a Puma plugin for NewRelic custom metrics.
 It will sample the Puma stats and create a custom metric for NewRelic.
 You can view the information in the NewRelic insights or in NewRelic One.
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,29 +22,31 @@ Or install it yourself as:
 
 ## Usage
 
-* Install the gem
-* Add `plugin 'new_relic_stats'` to your puma.rb
-* Create a dashboard on the NewRelic insights or NewRelic One
+- Install the gem
+- Add `plugin 'newrelic'` to your puma.rb
+- Create a dashboard on the NewRelic insights or NewRelic One
 
-NQRL example: 
+NQRL example:
+
 ```SQL
-SELECT rate(average(newrelic.timeslice.value), 1 minute) 
-FROM Metric 
-WHERE appName ='My App Name' 
-WITH METRIC_FORMAT 'Custom/Puma/pool_capacity' 
+SELECT rate(average(newrelic.timeslice.value), 1 minute)
+FROM Metric
+WHERE appName ='My App Name'
+WITH METRIC_FORMAT 'Custom/Puma/pool_capacity'
 TIMESERIES FACET `host` LIMIT 10 SINCE 1800 seconds ago
 ```
 
 ## Extra config in newrelic.yml
+
 ```yaml
 common: &default_settings
-    puma:
-      sample_rate: 15
-      keys:
-        - backlog
-        - running
-        - pool_capacity
-        - max_threads
+  puma:
+    sample_rate: 15
+    keys:
+      - backlog
+      - running
+      - pool_capacity
+      - max_threads
 ```
 
 ## Development
@@ -56,9 +57,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/puma-newrelic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/puma-newrelic/blob/master/CODE_OF_CONDUCT.md).
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/codeur/puma-newrelic. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/codeur/puma-newrelic/blob/main/CODE_OF_CONDUCT.md).
 
 ## Code of Conduct
 
-Everyone interacting in the Puma::Newrelic project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/puma-newrelic/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Puma::NewRelic project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/codeur/puma-newrelic/blob/main/CODE_OF_CONDUCT.md).

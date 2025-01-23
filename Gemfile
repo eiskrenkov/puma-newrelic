@@ -1,7 +1,12 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in puma-newrelic.gemspec
+# Specify your gem's dependencies in puma-newrelic-stats.gemspec
 gemspec
 
-gem "rake", "~> 12.0"
-gem "rspec", "~> 3.0"
+gem "rake", "~> 13.0"
+
+gem "minitest", "~> 5.16"
+
+gem "standard", "~> 1.3"

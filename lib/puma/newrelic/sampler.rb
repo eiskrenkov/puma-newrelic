@@ -1,11 +1,13 @@
+require "newrelic_rpm/agent"
+
 module Puma
   module NewRelic
     class Sampler
       def initialize(launcher)
-        config          = ::NewRelic::Agent.config[:puma] || {}
-        @launcher       = launcher
-        @sample_rate    = config.fetch("sample_rate", 15)
-        @keys           = config.fetch("keys", %w(backlog running pool_capacity max_threads)).map(&:to_s)
+        config = ::NewRelic::Agent.config[:puma] || {}
+        @launcher = launcher
+        @sample_rate = config.fetch("sample_rate", 15)
+        @keys = config.fetch("keys", %w[backlog running pool_capacity max_threads]).map(&:to_s)
         @last_sample_at = Time.now
       end
 
@@ -16,14 +18,14 @@ module Puma
           begin
             if should_sample?
               @last_sample_at = Time.now
-              puma_stats      = @launcher.stats
+              puma_stats = @launcher.stats
               if puma_stats.is_a?(Hash)
                 parse puma_stats
               else
                 parse JSON.parse(puma_stats, symbolize_names: true)
               end
             end
-          rescue Exception => e
+          rescue Exception => e # rubocop:disable Lint/RescueException
             ::NewRelic::Agent.logger.error(e.message)
           end
         end
