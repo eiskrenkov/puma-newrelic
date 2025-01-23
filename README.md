@@ -18,12 +18,12 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install puma-newrelic
+    $ gem install puma-newrelic-codeur
 
 ## Usage
 
 - Install the gem
-- Add `plugin 'newrelic'` to your puma.rb
+- Add `plugin :newrelic` to your puma.rb
 - Create a dashboard on the NewRelic insights or NewRelic One
 
 NQRL example:
