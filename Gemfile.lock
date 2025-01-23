@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    puma-newrelic-codeur (0.1.7)
+    puma-newrelic-codeur (0.1.8)
       newrelic_rpm (~> 9.0)
       puma (~> 6.0)
 
