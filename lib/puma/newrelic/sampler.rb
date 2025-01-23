@@ -1,4 +1,4 @@
-require "newrelic_rpm/agent"
+require "newrelic_rpm"
 
 module Puma
   module NewRelic

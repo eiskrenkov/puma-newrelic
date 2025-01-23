@@ -9,4 +9,4 @@ module Puma
   end
 end
 
-require_relative "plugin"
+require_relative "newrelic/plugin"

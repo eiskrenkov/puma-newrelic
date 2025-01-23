@@ -1,4 +1,5 @@
 require_relative "sampler"
+require "puma/plugin"
 
 module Puma
   module NewRelic
