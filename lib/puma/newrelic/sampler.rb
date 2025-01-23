@@ -15,14 +15,10 @@ module Puma
         @running = true
         while @running
           sleep 1
-          begin
-            if should_sample?
-              @last_sample_at = Time.now
-              puma_stats = @launcher.stats
-              record_metrics(puma_stats)
-            end
-          rescue Exception => e # rubocop:disable Lint/RescueException
-            ::NewRelic::Agent.logger.error(e.message)
+
+          if should_sample?
+            record_metrics(@launcher.stats)
+            @last_sample_at = Time.now
           end
         end
       end
@@ -49,7 +45,7 @@ module Puma
         end
 
         metrics.each do |key, value|
-          ::NewRelic::Agent.logger.debug("Recorded metric: Custom/Puma/#{key}=#{value}")
+          ::NewRelic::Agent.logger.info("Recorded metric: Custom/Puma/#{key}=#{value}")
           ::NewRelic::Agent.record_metric("Custom/Puma/#{key}", value)
         end
       end
