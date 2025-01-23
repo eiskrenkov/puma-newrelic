@@ -5,8 +5,8 @@ module Puma
   module NewRelic
     class Sampler
       def initialize(launcher)
-        @newrelic_config = YAML.load_file("config/newrelic.yml", aliases: true)[ENV["RAILS_ENV"]]
-        config = @newrelic_config[:puma] || {}
+        @newrelic_config = YAML.load_file("config/newrelic.yml", aliases: true)[ENV["RAILS_ENV"]] || {}
+        config = @newrelic_config['puma'] || {}
         @launcher = launcher
         @sample_rate = config.fetch("sample_rate", 23)
         @keys = config.fetch("keys", %i[backlog running pool_capacity max_threads requests_count]).map(&:to_sym)
