@@ -41,7 +41,7 @@ TIMESERIES FACET `host` LIMIT 10 SINCE 1800 seconds ago
 ```yaml
 common: &default_settings
   puma:
-    sample_rate: 15
+    sample_interval: 15
     keys:
       - backlog
       - running
