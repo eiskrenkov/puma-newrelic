@@ -10,7 +10,7 @@ module Puma
         @sample_interval = config.fetch("sample_interval", 23)
         @keys = config.fetch("keys", %i[backlog running pool_capacity max_threads requests_count]).map(&:to_sym)
         @last_sample_at = Time.now
-        @launcher.log_writer.info("NewRelic Sampler started with interval #{@sample_interval} seconds")
+        @launcher.log_writer.log("NewRelic Sampler started with interval #{@sample_interval} seconds")
       end
 
       def collect
@@ -30,7 +30,7 @@ module Puma
       end
 
       def record_metrics(stats)
-        @launcher.log_writer.info("NewRelic Sampler collecting metrics")
+        @launcher.log_writer.log("NewRelic Sampler collecting metrics")
         @last_sample_at = Time.now
         metrics = Hash.new { |h, k| h[k] = 0 }
 
