@@ -3,10 +3,10 @@
 require_relative "lib/puma/newrelic/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "puma-newrelic-codeur"
+  spec.name = "puma-newrelic"
   spec.version = Puma::NewRelic::VERSION
-  spec.authors = ["Benoist Claassen", "Codeur SAS"]
-  spec.email = ["benoist.claassen@gmail.com", "dev@codeur.com"]
+  spec.authors = ["Benoist Claassen"]
+  spec.email = ["benoist.claassen@gmail.com"]
 
   spec.summary = "New Relic Puma Stats sampler"
   spec.description = "Samples the puma stats and creates a custom metric for NewRelic"
@@ -15,10 +15,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 3.0.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
-
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/codeur/puma-newrelic"
-  spec.metadata["changelog_uri"] = "https://github.com/codeur/puma-newrelic/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
