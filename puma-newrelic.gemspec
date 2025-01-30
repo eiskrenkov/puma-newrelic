@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/puma/newrelic/version"
+require_relative "lib/puma/new_relic/version"
 
 Gem::Specification.new do |spec|
   spec.name = "puma-newrelic"

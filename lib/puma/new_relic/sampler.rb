@@ -39,7 +39,7 @@ module Puma
       end
 
       def log(message)
-        launcher.log_writer.log { message }
+        launcher.log_writer.log(message)
       end
 
       def record_metrics(stats)

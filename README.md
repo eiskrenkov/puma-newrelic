@@ -23,7 +23,7 @@ Or install it yourself as:
 ## Usage
 
 - Install the gem
-- Add `plugin :newrelic` to your puma.rb
+- Add `plugin :new_relic` to your puma.rb
 - Create a dashboard on the NewRelic insights or NewRelic One
 
 NQRL example:
