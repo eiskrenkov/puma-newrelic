@@ -39,6 +39,7 @@ module Puma
       end
 
       def log(message)
+        puts message
         launcher.log_writer.log(message)
       end
 
