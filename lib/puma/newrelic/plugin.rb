@@ -5,6 +5,7 @@ module Puma
     module Plugin
       def start(launcher)
         sampler = Puma::NewRelic::Sampler.new(launcher)
+        return unless sampler.enabled?
 
         launcher.events.register(:state) do |state|
           if %i[halt restart stop].include?(state)
