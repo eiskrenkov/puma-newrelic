@@ -43,8 +43,6 @@ module Puma
       end
 
       def record_metrics(stats)
-        log("NewRelic Sampler collecting metrics with Agent #{::NewRelic::Agent.agent.inspect}")
-
         @last_sample_at = Time.now
         metrics = Hash.new { |h, k| h[k] = 0 }
 
