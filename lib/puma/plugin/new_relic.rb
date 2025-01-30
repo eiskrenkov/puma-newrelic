@@ -1,4 +1,4 @@
-require "puma"
+require "puma/plugin"
 require 'puma/new_relic/sampler'
 
 Puma::Plugin.create do
