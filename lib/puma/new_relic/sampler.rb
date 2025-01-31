@@ -20,6 +20,8 @@ module Puma
 
       def collect
         log("NewRelic Sampler started with interval #{sampling_interval} seconds")
+        log("NewRelic config: #{NewRelic::Agent.config.instance_variable_get(:@yaml_source)}")
+        log("NewRelic agent: #{NewRelic::Agent.agent.inspect}")
 
         @running = true
         @last_sample_at = Time.now
